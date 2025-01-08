@@ -1,0 +1,17 @@
+body {
+    background-image: url(./container1.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: Raleway;
+    color: white;
+}
+

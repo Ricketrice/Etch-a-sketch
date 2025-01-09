@@ -23,6 +23,8 @@
       container.style.border = "4px solid black";
       container.style.display = "flex";
       container.style.flexWrap = "wrap";
+      container.style.padding = "0";
+      container.style.margin = "0";
 
 
 
@@ -35,26 +37,52 @@
         return randomizeColor;
       }
 
+      const container2 = document.createElement("div");
+      container2.style.border = "1px solid black";
+      container2.style.width = "600px";
+      container2.style.height = "60px";
+      container2.style.margin = "5px";
+      container2.style.display = "flex";
+      container2.style.alignItems = "center";
       
 
+      const askingUserButton = document.createElement("BUTTON");
+      askingUserButton.style.backgroundColor = "Yellow";
+      askingUserButton.style.width = "200px";
+      askingUserButton.style.height = "50px";
+      askingUserButton.style.margin = "2px";
+      askingUserButton.textContent = "Change grid size";
+      askingUserButton.style.fontSize = "15px"
+      askingUserButton.style.borderRadius = "10px";
+
+      body.appendChild(container2);
+      container2.appendChild(askingUserButton);
       body.appendChild(container);
 
       function createDiv() {
+
+        
         const i = parseInt(prompt("Enter a number "))
-        const expoNum = i**2+1;
+        const expoNum = i**2;
+        const smallBoxWidth = 450/i;
+        const smallBoxHeight = 600/i;
+        
         if (expoNum>10000) {
           alert("Please enter a number under 100");
         } else {
-          for (let j = i; j<expoNum ;j++) {
+          for (let j = 0; j<expoNum;j++) {
             const smallBox = document.createElement("div");
-            smallBox.style.backgroundColor = randomColor();
-            smallBox.style.margin = "";
+            smallBox.style.backgroundColor = "white";
+            smallBox.style.margin = "0";
             smallBox.style.padding = "0";
-            smallBox.style.width = "10%";
+            smallBox.style.width = `${smallBoxWidth}px`;
             // smallBox.style.opacity = "0.2";
-            smallBox.style.height = "10%";
-            
+            smallBox.style.height = `${smallBoxHeight}px`;
             smallBox.style.display = "inline-block";
+
+            smallBox.addEventListener("mousemove", ()=>{
+              smallBox.style.backgroundColor = randomColor();
+            })
 
 
             console.log(j);

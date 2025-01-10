@@ -60,6 +60,18 @@
       container2.style.display = "flex";
       container2.style.alignItems = "center";
       container2.style.justifyContent = "space-evenly";
+
+      const defaultStyle = document.createElement("button");
+      defaultStyle.style.backgroundColor = "Yellow";
+      defaultStyle.style.width = "200px";
+      defaultStyle.style.height = "50px";
+      defaultStyle.style.margin = "2px";
+      defaultStyle.textContent = "Default";
+      defaultStyle.style.fontSize = "25px"
+      defaultStyle.style.borderRadius = "10px";
+      defaultStyle.style.fontFamily = "Oswald";
+      defaultStyle.style.cursor = "pointer";
+      
       
 
       const askingUserButton = document.createElement("BUTTON");
@@ -73,10 +85,25 @@
       askingUserButton.style.fontFamily = "Oswald";
       askingUserButton.style.cursor = "pointer";
 
+      const rainbowStyle = document.createElement("button");
+      rainbowStyle.style.backgroundColor = "Aqua";
+      rainbowStyle.style.width = "150px";
+      rainbowStyle.style.height = "50px";
+      rainbowStyle.textContent = "Rainbow";
+      rainbowStyle.style.border = "2px solid black";
+      rainbowStyle.style.borderRadius = "10px";
+      rainbowStyle.style.fontSize = "25px";
+      rainbowStyle.style.fontfamily = "Oswald";
+      rainbowStyle.style.cursor = "pointer";
+
+
+
       body.appendChild(container2);
       container2.appendChild(askingUserButton);
       body.appendChild(container);
+      container2.appendChild(rainbowStyle);
       container2.appendChild(resetButton);
+      container2.append(defaultStyle);
 
 
       function createDiv() {
@@ -99,14 +126,27 @@
             smallBox.style.height = `${smallBoxHeight}px`;
             smallBox.style.display = "inline-block";
 
-            smallBox.addEventListener("mousemove", ()=>{
-            smallBox.style.backgroundColor = randomColor();
-            smallBox.style.opacity = "1";
+            smallBox.addEventListener("mouseover", ()=>{
+              smallBox.style.backgroundColor = "black";
+            });
+
+            rainbowStyle.addEventListener("click", ()=> {
+              smallBox.addEventListener("mouseover", ()=>{
+                smallBox.style.backgroundColor = randomColor();
+              })
+            })
+
+            defaultStyle.addEventListener("click", ()=> {
+              smallBox.addEventListener("mouseover", ()=> {
+                smallBox.style.backgroundColor = "black";
+              })
             })
 
             container.appendChild(smallBox);
           }
         }
+
+
         resetButton.addEventListener("click", () => {
         for (let j = 0; j<expoNum;j++) {
           container.innerHTML = ""; 
